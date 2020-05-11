@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 django = "*"
 ipython = "*"
+django-grappelli = "*"
 
 [requires]
 python_version = "3.8"
