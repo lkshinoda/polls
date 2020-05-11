@@ -21,12 +21,14 @@ def indexpage(request):
     )
 
 def poll(request):
+    tests = Test.objects.all()
     polls = Poll.objects.all()
     return render(
         request, 
         'polls/polls.html', 
         {
-            'polls':polls,
             'header':'Список опросов',
+            'polls':polls,
+            'tests':tests,
             }
     )

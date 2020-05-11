@@ -10,6 +10,10 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question_text
+    
+    class Meta:
+        verbose_name = 'Вопрос'
+        verbose_name_plural = 'Вопросы'
 
 class Test(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
@@ -22,6 +26,10 @@ class Test(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'Тест'
+        verbose_name_plural = 'Тесты'
+
 class Poll(models.Model):
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
     title = models.CharField('Заголовок', max_length=255)
@@ -33,3 +41,6 @@ class Poll(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'Опрос'
+        verbose_name_plural = 'Опросы'

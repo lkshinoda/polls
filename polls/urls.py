@@ -6,7 +6,3 @@ urlpatterns = [
     path('', views.indexpage),
     path('poll/', views.poll),
 ]
-
-
-
-asdfl
