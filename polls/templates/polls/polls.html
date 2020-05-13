@@ -1,30 +1,32 @@
-<!doctype html>
+{% extends 'base.html' %}
 
-<html lang="en">
-<head>
-  <meta charset="utf-8">
+{% block title %} 
+    Список опросов
+{% endblock %}
 
-  <title> {{ header }} </title>
-  <meta name="description" content="Опрос">
-  <meta name="author" content="Eugene">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+{% block content %}
 
-</head>
-
-<body>
     {% for poll in polls %}
         <p>
             {{ poll }}
         </p>
     {% endfor %}
+    <br><br>
 
-    <br>
-    <br>
+
     {% for test in tests %}
         <p>
             {{ test }}
         </p>
     {% endfor %}
-</body>
-</html>
+    <br><br>
+
+
+    time - {{ time }}
+
+    <br>
+
+    your ip - {{ ip }}
+
+{% endblock %}

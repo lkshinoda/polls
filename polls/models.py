@@ -7,6 +7,7 @@ class Question(models.Model):
     question_text = models.CharField('Вопрос', max_length=255)
     active = models.BinaryField()
     true_answer = models.CharField('Правильный ответ', max_length=50)
+    choice = models.CharField(max_length=length, ${blank=True, null=True})
 
     def __str__(self):
         return self.question_text

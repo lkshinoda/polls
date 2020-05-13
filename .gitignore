@@ -55,7 +55,8 @@ coverage.xml
 *.mo
 *.pot
 
-
+# sqlite
+*.sqlite
 *.log
 
 # Flask stuff:
