@@ -7,10 +7,11 @@ from datetime import datetime
 
 from .models import Poll
 
+def get_client_ip(request):
+    return request.META['REMOTE_ADDR']
 
 def indexpage(request):
-    client_ip = request.META['REMOTE_ADDR']
-    clock = datetime.now()
+    client_ip = get_client_ip(request)
 
     return render(
         request,
@@ -19,13 +20,14 @@ def indexpage(request):
             'header':'Заголовок основой странички',
             'body':'Тело основной странички',
             'ip': client_ip,
-            'time':clock,
         }
     )
 
 def poll(request):
+    client_ip = get_client_ip(request)
     tests = Test.objects.all()
     polls = Poll.objects.all()
+    questions = Question.objects.all()
     return render(
         request, 
         'polls/polls.html', 
@@ -33,5 +35,7 @@ def poll(request):
             'header':'Список опросов',
             'polls':polls,
             'tests':tests,
+            'questions':questions,
+            'ip': client_ip,
             }
     )

@@ -3,11 +3,11 @@ from django.db import models
 from django.utils import timezone
 from django.contrib import admin
 
+
 class Question(models.Model):
     question_text = models.CharField('Вопрос', max_length=255)
     active = models.BinaryField()
     true_answer = models.CharField('Правильный ответ', max_length=50)
-    choice = models.CharField(max_length=length, ${blank=True, null=True})
 
     def __str__(self):
         return self.question_text
@@ -16,8 +16,9 @@ class Question(models.Model):
         verbose_name = 'Вопрос'
         verbose_name_plural = 'Вопросы'
 
+
 class Test(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ManyToManyField('polls.Question')
     title = models.CharField('Заголовок теста', max_length=255)
     slug = models.SlugField()
     description = models.TextField('Описание теста', max_length=2000)
@@ -31,8 +32,9 @@ class Test(models.Model):
         verbose_name = 'Тест'
         verbose_name_plural = 'Тесты'
 
+
 class Poll(models.Model):
-    test = models.ForeignKey(Test, on_delete=models.CASCADE)
+    test = models.ManyToManyField('polls.Test')
     title = models.CharField('Заголовок', max_length=255)
     slug = models.SlugField()
     description = models.TextField('Описание', max_length=2000)

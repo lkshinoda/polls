@@ -20,12 +20,15 @@
             {{ test }}
         </p>
     {% endfor %}
-    <br><br>
-
-
-    time - {{ time }}
-
     <br>
+    
+    {% for question in questions %}
+        <p>
+            {{ question }}
+        <p>
+    {% endfor %}
+    
+    <br><br>
 
     your ip - {{ ip }}
 
